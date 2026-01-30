@@ -11,26 +11,26 @@
 
   <script>
     function runLoadingAnimation() { //Function to run loading animation
-      const loader = document.getElementById("loader");
-      const status = document.getElementById("status");
+      const loader = document.getElementById("loader"); //libnks to loader elements above ^^
+      const status = document.getElementById("status"); //links to "Please wait" status above ^^
 
       const frames = ["⏳", "⌛", ".", "..", "..."]; //The selection of images to loop through
       let index = 0; 
       let cycleCount = 0; //Begins at 0
       const maxCycles = 10; //Will loop for 10 cycles
 
-      const interval = setInterval(() => {
-        loader.textContent = frames[index % frames.length]; 
-        index++;
-        if (index % frames.length === 0) {
-          cycleCount++;
+      const interval = setInterval(() => { //Starts timer
+        loader.textContent = frames[index % frames.length];  
+        index++; //increments index for frames
+        if (index % frames.length === 0) { 
+          cycleCount++; //increments index for cycle
         }
         if (cycleCount >= maxCycles) { //Terminates sequence when maxCycles (10) is reached
           clearInterval(interval);
           loader.textContent = "✅"; //Success image depicted
           status.textContent = "Done!"; //Success message displayed
         }
-      }, 500);
+      }, 500); //Interval time
     }
 
 //SUGGESTION: Could include some sort of "X" emoji if there is an error/exception that breaks the cycle
