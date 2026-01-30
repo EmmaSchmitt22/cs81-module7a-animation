@@ -10,30 +10,31 @@
   <div id="status">Please wait</div>
 
   <script>
-    function runLoadingAnimation() {
+    function runLoadingAnimation() { //Function to run loading animation
       const loader = document.getElementById("loader");
       const status = document.getElementById("status");
 
-      const frames = ["⏳", "⌛", ".", "..", "..."];
-      let index = 0;
-      let cycleCount = 0;
-      const maxCycles = 10;
+      const frames = ["⏳", "⌛", ".", "..", "..."]; //The selection of images to loop through
+      let index = 0; 
+      let cycleCount = 0; //Begins at 0
+      const maxCycles = 10; //Will loop for 10 cycles
 
       const interval = setInterval(() => {
-        loader.textContent = frames[index % frames.length];
+        loader.textContent = frames[index % frames.length]; 
         index++;
         if (index % frames.length === 0) {
           cycleCount++;
         }
-        if (cycleCount >= maxCycles) {
+        if (cycleCount >= maxCycles) { //Terminates sequence when maxCycles (10) is reached
           clearInterval(interval);
-          loader.textContent = "✅";
-          status.textContent = "Done!";
+          loader.textContent = "✅"; //Success image depicted
+          status.textContent = "Done!"; //Success message displayed
         }
       }, 500);
     }
 
-    runLoadingAnimation();
+
+    runLoadingAnimation(); //Calling loading animation funcntion
   </script>
 
 </body>
